@@ -7,6 +7,8 @@ class Room:
     num_rooms = []
 
     def __init__(self, num, type_room, num_beds, comforts, price, hotel=None):
+        if not Room.num_is_available(num):
+            raise ValueError("Номер кімнати вже існує")
         self.__num = num
         self.__type_room = type_room
         self.__num_beds = num_beds
